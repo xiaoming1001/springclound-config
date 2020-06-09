@@ -1,0 +1,19 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:xiaoming1001/springclound-config.git
+          search-paths:
+            - springcloud_config
+      label: master
+
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        service-name: ${spring.application.name}
